@@ -28,18 +28,13 @@ export const parseForm = async (
       }
     }
 
-    let filename = ""; //  To avoid duplicate upload
     const form = formidable({
-      maxFiles: 2,
-      maxFileSize: 1024 * 1024, // 1mb
+      maxFiles: 10,
+      maxFileSize: 1024 * 1024 * 10, // 10mb
       uploadDir,
       filename: (_name, _ext, part) => {
-        if (filename !== "") {
-          return filename;
-        }
-
         const uniqueSuffix = `${Date.now()}-${Math.round(Math.random() * 1e9)}`;
-        filename = `${part.name || "unknown"}-${uniqueSuffix}.${
+        const filename = `${part.name || "unknown"}-${uniqueSuffix}.${
           mime.getExtension(part.mimetype || "") || "unknown"
         }`;
         return filename;
