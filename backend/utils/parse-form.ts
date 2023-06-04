@@ -39,11 +39,6 @@ export const parseForm = async (
         }`;
         return filename;
       },
-      filter: (part) => {
-        return (
-          part.name === "media" && (part.mimetype?.includes("image") || false)
-        );
-      },
     });
 
     form.parse(req, function (err, fields, files) {

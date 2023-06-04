@@ -67,7 +67,6 @@ const MultipleFileUploadForm = () => {
       /** Reset file input */
       fileInput.type = "text";
       fileInput.type = "file";
-
       console.log("Files were uploaded successfylly:", data);
     } catch (error) {
       console.error(error);

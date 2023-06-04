@@ -1,5 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { parseForm, FormidableError } from "../../lib/parse-form";
+import { fileToText, parseTextToJSON } from "../../backend/pdf";
+import { FormidableError, parseForm } from "../../backend/utils/parse-form";
+import { head } from "lodash";
 
 const handler = async (
   req: NextApiRequest,
@@ -21,14 +23,13 @@ const handler = async (
   // Just after the "Method Not Allowed" code
   try {
     const { fields, files } = await parseForm(req);
-
-    const file = files.media;
-    let url = Array.isArray(file) ? file.map((f) => f.filepath) : file.filepath;
-
+    const file = files.files;
+    let filepath = Array.isArray(file) ? file.map((f) => f.filepath) : file.filepath;
+		const field = Array.isArray(fields["tsSchema"]) ? head(fields["tsSchema"]) : fields["tsSchema"];
+		const text = await fileToText(Array.isArray(filepath) ? filepath[0] : filepath, field ?? null);
+		const json = parseTextToJSON(text);
     res.status(200).json({
-      data: {
-        url,
-      },
+      data: json,
       error: null,
     });
   } catch (e) {
