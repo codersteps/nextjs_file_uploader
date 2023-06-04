@@ -5,7 +5,7 @@ export const generatePrompt = (tsSchema: string, rawText: string): ChatCompletio
 		{
 			'role': 'system',
 			'content': `You are a smart assitant. Given a Typescript schema and a text blurb, generate JSON object(s) with
-			relevant information from the text blurb. NOTE: DO NOT ADD ANY EXTRA INFORMATION BEYOND THE SCHEMA.`
+			relevant information from the text blurb.`
 		},
 		{
 			'role': 'user',
