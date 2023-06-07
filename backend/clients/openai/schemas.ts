@@ -1,4 +1,4 @@
-interface StandardContract {
+export interface StandardContract {
 	 // Name of the vendor who sells the item
   supplier: string;
 	// Quote or order number, empty if there is no matching information
