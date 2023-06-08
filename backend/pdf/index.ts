@@ -31,7 +31,14 @@ interface MergedPage {
 	pageRange: number[];
 }
 
-export const fileToText = async (filepath: string, tsSchema: string | null): Promise<ExtractedData> => {
+export const fileToText = async (params: {
+	filepath: string;
+	tsSchema: string | null;
+}): Promise<ExtractedData> => {
+	const {
+		filepath,
+		tsSchema
+	} = params;
 	const readResults = await extractTextFromFile(filepath);
 	const pages = sanitizeOCRResults(readResults);
 	const mergedPages = mergePages(pages);
