@@ -8,10 +8,10 @@ const handle = app.getRequestHandler()
 
 app.prepare()
 .then(() => {
-	const tracer = datadogTracer.init({ hostname: "172.17.0.1" });
-	const OpenTracingMiddleware = require('express-opentracing').default;
+	// const tracer = datadogTracer.init({ hostname: "172.17.0.1" });
+	// const OpenTracingMiddleware = require('express-opentracing').default;
   const server = express()
-	server.use(OpenTracingMiddleware({ tracer }));
+	// server.use(OpenTracingMiddleware({ tracer }));
 
   server.get('*', (req, res) => {
     return handle(req, res)
