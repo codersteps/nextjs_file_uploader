@@ -3,6 +3,8 @@ import { ApiKeyCredentials } from '@azure/ms-rest-js';
 import { createReadStream } from 'fs';
 import { sleep } from '../../utils';
 import { getEnvVariable } from '../../utils/environment';
+import { GetReadResultResponse, ReadInStreamResponse, ReadResult } from '@azure/cognitiveservices-computervision/esm/models';
+import { isNil } from 'lodash';
 
 const key = getEnvVariable('AZURE_COMPUTER_VISION_KEY');
 const endpoint = getEnvVariable('AZURE_COMPUTER_VISION_ENDPOINT');
@@ -30,15 +32,16 @@ const getClient = (): ComputerVisionClient => {
 	return computerVisionClient;
 }
 
-export const extractTextFromFile = async (filepath: string): Promise<any[]> => {
+export const extractTextFromFile = async (filepath: string): Promise<ReadResult[]> => {
 	const client = getClient();
-	let result: any = await client.readInStream(() => createReadStream(filepath));
-	let operation = result.operationLocation.split('/').slice(-1)[0];
+	const initialResult: ReadInStreamResponse = await client.readInStream(() => createReadStream(filepath));
+	const operation = initialResult.operationLocation.split('/').slice(-1)[0];
+	let finalResult: GetReadResultResponse | null = null;
 
-	while (result.status !== "succeeded") {
+	while (isNil(finalResult) || finalResult.status !== "succeeded") {
 		await sleep(1000);
-		result = await client.getReadResult(operation);
+		finalResult = await client.getReadResult(operation);
 	}
 
-	return result.analyzeResult.readResults;
+	return finalResult.analyzeResult?.readResults ?? [];
 }

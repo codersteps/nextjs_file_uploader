@@ -1,5 +1,6 @@
 import { ChangeEvent, MouseEvent, useState } from "react";
 import Spinner from "./Spinner";
+import { ExtractedData } from "../common/types/rpc";
 
 interface Props {
 	onUploadStart: () => void;
@@ -80,7 +81,7 @@ const SingleFileUploadForm = ({
         data,
         error,
       }: {
-        data: any,
+        data: ExtractedData | null,
         error: string | null;
       } = await res.json();
 

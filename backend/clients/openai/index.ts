@@ -9,13 +9,12 @@ const configuration = new Configuration({
 let openaiClient = new OpenAIApi(configuration);
 
 const getClient = (): OpenAIApi => {
-	if (!openaiClient) {
-		openaiClient = new OpenAIApi(configuration);
-	}
-	return openaiClient;
+	// This allows us to make parallel requests to OpenAI.
+	return new OpenAIApi(configuration);
 }
 
 export const extractInformationFromRawText = async (tsSchema: string, rawText: string) => {
+	const start = Date.now();
 	const client = getClient();
 	try {
 		const completion = await client.createChatCompletion({
@@ -23,6 +22,7 @@ export const extractInformationFromRawText = async (tsSchema: string, rawText: s
 			messages: generatePrompt(tsSchema, rawText),
 		});
 		const optimalChoice = completion.data.choices.find((choice) => choice.message && choice.message.role === 'assistant');
+		console.log(`Parsing took ${Date.now() - start} ms`);
 		if (!optimalChoice) {
 			return "";
 		} else {

@@ -2,13 +2,12 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { fileToText, parseTextToJSON } from "../../backend/pdf";
 import { FormidableError, parseForm } from "../../backend/utils/parse-form";
 import { head } from "lodash";
+import { ExtractedData } from "../../common/types/rpc";
 
 const handler = async (
   req: NextApiRequest,
   res: NextApiResponse<{
-    data: {
-      url: string | string[];
-    } | null;
+    data: ExtractedData | null;
     error: string | null;
   }>
 ) => {
@@ -26,10 +25,9 @@ const handler = async (
     const file = files.files;
     let filepath = Array.isArray(file) ? file.map((f) => f.filepath) : file.filepath;
 		const field = Array.isArray(fields["tsSchema"]) ? head(fields["tsSchema"]) : fields["tsSchema"];
-		const text = await fileToText(Array.isArray(filepath) ? filepath[0] : filepath, field ?? null);
-		const json = parseTextToJSON(text);
+		const data = await fileToText(Array.isArray(filepath) ? filepath[0] : filepath, field ?? null);
     res.status(200).json({
-      data: json,
+      data,
       error: null,
     });
   } catch (e) {
