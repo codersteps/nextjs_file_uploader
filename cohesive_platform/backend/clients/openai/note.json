@@ -1,0 +1,179 @@
+{
+  "supplier": "YourSix Inc.",
+  "orderId": "003874",
+  "orderDate": "08/02/2022",
+  "customerAddresses": [
+    "469 West St, Fort Lee, NJ 07024"
+  ],
+  "country": "USA",
+  "itemGroups": [
+    {
+      "name": "Surveillance",
+      "items": [
+        {
+          "name": "Network Cabinet Speaker",
+          "quantity": "1",
+          "unitPrice": "$649.00",
+          "contractTerm": null,
+          "monthlyCharge": null,
+          "contractStartDate": null,
+          "contractEndDate": null
+        },
+        {
+          "name": "Project Management - Video Surveillance",
+          "quantity": "1",
+          "unitPrice": "$100.00",
+          "contractTerm": null,
+          "monthlyCharge": null,
+          "contractStartDate": null,
+          "contractEndDate": null
+        },
+        {
+          "name": "Programming - Video Surveillance",
+          "quantity": "1",
+          "unitPrice": "$100.00",
+          "contractTerm": null,
+          "monthlyCharge": null,
+          "contractStartDate": null,
+          "contractEndDate": null
+        }
+      ],
+      "subtotal": "$849.00",
+      "tax": null,
+      "total": "$849.00"
+    },
+		{
+			"name": "Surveillance Recurring",
+			"items": [
+				{
+					"name": "Monthly Recurring Base License",
+					"quantity": "1",
+					"contractTerm": "36",
+          "monthlyCharge": "$10",
+          "contractStartDate": null,
+          "contractEndDate": null
+				}
+			],
+			"subtotal": "$10",
+			"tax": null,
+			"total": "$10"
+		},
+    {
+      "name": "Access Control",
+      "items": [
+        {
+          "name": "Project Management - Access Control",
+          "quantity": "2",
+          "unitPrice": "$100.00",
+          "contractTerm": null,
+          "monthlyCharge": null,
+          "contractStartDate": null,
+          "contractEndDate": null
+        },
+        {
+          "name": "Programming - Access Control",
+          "quantity": "2",
+          "unitPrice": "$100.00",
+          "contractTerm": null,
+          "monthlyCharge": null,
+          "contractStartDate": null,
+          "contractEndDate": null
+        },
+        {
+          "name": "Locksmith Installation, Labor and Materials. Includes Strike, Trim and Low Voltage Installer",
+          "quantity": "1",
+          "unitPrice": "$2,855.60",
+          "contractTerm": "36",
+          "monthlyCharge": "$7,638.27",
+          "contractStartDate": "08/02/2022",
+          "contractEndDate": "08/02/2025"
+        },
+        {
+          "name": "Black Enclosure Box",
+          "quantity": "1",
+          "unitPrice": "$45.00",
+          "contractTerm": null,
+          "monthlyCharge": null,
+          "contractStartDate": null,
+          "contractEndDate": null
+        },
+        {
+          "name": "Door Controller - Advanced",
+          "quantity": "1",
+          "unitPrice": "$699.00",
+          "contractTerm": "36",
+          "monthlyCharge": "$14.00",
+          "contractStartDate": "08/02/2022",
+          "contractEndDate": "08/02/2025"
+        },
+        {
+          "name": "Standard Size Card Reader",
+          "quantity": "1",
+          "unitPrice": "$225.70",
+          "contractTerm": "36",
+          "monthlyCharge": "$14.00",
+          "contractStartDate": "08/02/2022",
+          "contractEndDate": "08/02/2025"
+        },
+        {
+          "name": "PIR Request to Exit Sensor W/S White",
+          "quantity": "1",
+          "unitPrice": "$99.00",
+          "contractTerm": "36",
+          "monthlyCharge": "$14.00",
+          "contractStartDate": "08/02/2022",
+          "contractEndDate": "08/02/2025"
+        },
+        {
+          "name": "PoE Splitter, 60W",
+          "quantity": "1",
+          "unitPrice": "$99.00",
+          "contractTerm": null,
+          "monthlyCharge": null,
+          "contractStartDate": null,
+          "contractEndDate": null
+        },
+        {
+          "name": "Power Distribution Relay",
+          "quantity": "1",
+          "unitPrice": "$71.41",
+          "contractTerm": null,
+          "monthlyCharge": null,
+          "contractStartDate": null,
+          "contractEndDate": null
+        },
+        {
+          "name": "PoE 60w Midspan",
+          "quantity": "1",
+          "unitPrice": "$159.00",
+          "contractTerm": null,
+          "monthlyCharge": null,
+          "contractStartDate": null,
+          "contractEndDate": null
+        }
+      ],
+      "subtotal": "$12,291.98",
+      "tax": null,
+      "total": "$12,291.98"
+    },
+		{
+			"name": "Access Control Recurring",
+			"items": [
+				{
+					"name": "Cloud Access Control Management Additional Door",
+					"quantity": "1",
+					"contractTerm": "36",
+          "monthlyCharge": "$14",
+          "contractStartDate": null,
+          "contractEndDate": null
+				}
+			],
+			"subtotal": "$14",
+			"tax": null,
+			"total": "$14"
+		}
+  ],
+  "total": "$13,140.98",
+  "renewalNoticeDays": null,
+  "autoRenew": false
+}
